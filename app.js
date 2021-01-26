@@ -6,6 +6,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const createRelation = require('./routes/relation');
 const createUser = require('./routes/users');
+const createRelationship =  require('./routes/relationShip');
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.set('view engine', 'hjs')
 app.use('/', indexRouter);
 app.use('/', createRelation);
 app.use('/', createUser);
+app.use('/', createRelationship);
 
 
 module.exports = app;
