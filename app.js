@@ -4,8 +4,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var indexRouter = require('./routes/index');
 const createRelation = require('./routes/relation');
+const createUser = require('./routes/users');
 
 var app = express();
 
@@ -20,5 +20,7 @@ app.set('view engine', 'hjs')
 
 app.use('/', indexRouter);
 app.use('/', createRelation);
+app.use('/', createUser);
+
 
 module.exports = app;
