@@ -2,6 +2,7 @@ const personData = require('../entitities/persons_table')
 const personDetails = require('../entitities/persons_details')
 
 
+
 async function createDetails(params) {
     try {
         let person =  await personData.create({
@@ -35,6 +36,8 @@ async function createDetails(params) {
         throw err
     }
 }
+
+
 
 module.exports = {
     createDetails
