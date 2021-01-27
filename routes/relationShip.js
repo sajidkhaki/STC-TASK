@@ -5,4 +5,6 @@ const relationShipController = require('../controller/relationShip')
 
 router.post('/relationship', relationShipController.createRelationShip)
 
+router.get('/relationshipDetails', relationShipController.getRelationShip)
+
 module.exports = router;

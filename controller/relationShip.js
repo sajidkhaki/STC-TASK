@@ -1,5 +1,5 @@
 const RelationShipUseCase = require('../modals/useCases/relationShip')
-
+const sequelizeConfig = require('../datasource/db_config')
 
 module.exports.createRelationShip = async (req, res) => {
 
@@ -22,6 +22,32 @@ module.exports.createRelationShip = async (req, res) => {
             })
         }
     } catch (error) {
+
+    }
+}
+
+module.exports.getRelationShip = async (req, res) => {
+
+    try {
+let searchText = req.body.person1_id
+        let requestData = await sequelizeConfig.query(`SELECT * from relationshipDetails inner join  personDetails on personDetails.person_id = relationshipDetails.person2_id
+inner join relationTables on relationTables.relation_id=relationshipDetails.relation_id
+                            where(person1_id is not null) AND (person1_id like ?)`, {
+            replacements: [searchText],
+            type: sequelizeConfig.QueryTypes.SELECT
+        })
+
+        console.log("++++++++Searched User++++++++")
+        console.log(requestData)
+        console.log("++++++++Searched User++++++++")
+
+            return res.json({
+                code: 200,
+                status: 'success',
+                requestData
+            })
+
+    }catch (e) {
 
     }
 }
