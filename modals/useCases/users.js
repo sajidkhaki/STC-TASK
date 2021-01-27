@@ -11,7 +11,6 @@ async function createDetails(params) {
 
         if(person){
             let person_id = person.person_id
-            console.log("i am inside person", person_id)
 
             let uniqueName = await personDetails.findOne({
                 where: {
