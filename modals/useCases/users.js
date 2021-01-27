@@ -6,7 +6,7 @@ const personDetails = require('../entitities/persons_details')
 async function createDetails(params) {
     try {
         let person =  await personData.create({
-            person_id:''
+            // person_id:''
         })
 
         if(person){
